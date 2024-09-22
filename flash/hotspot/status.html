@@ -1,0 +1,115 @@
+<html>
+<head>
+<title>PODJOK.NET > status</title>
+$(if refresh-timeout)
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+$(endif)
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="d3.v3.min.js"></script>
+
+<script language="JavaScript">
+<!--
+$(if advert-pending == 'yes')
+    var popup = '';
+    function focusAdvert() {
+	if (window.focus) popup.focus();
+    }
+    function openAdvert() {
+	popup = open('$(link-advert)', 'hotspot_advert', '');
+	setTimeout("focusAdvert()", 1000);
+    }
+$(endif)
+    function openLogout() {
+	if (window.name != 'hotspot_status') return true;
+        open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+	window.close();
+	return false;
+    }
+//-->
+</script>
+</head>
+<body align="center"
+$(if advert-pending == 'yes')
+	onLoad="openAdvert()"
+$(endif)
+>
+
+<table width="100%" style="margin-top: 10px;">
+		<tr>
+			<td align="center">
+				<h2 style="font-size: 34px;color: white"><i>PODJOK.NET</i></h2>
+			</td>
+		</tr>
+		<td>
+			<div style="color: white; font-size: 14px; text-align: center;">Ingin langganan WiFi? <br>WA/Klik <a
+					href="https://wa.me/6289603417686/?text=Mau%20ikut%20paket%20podjok.net%20dong%21" target="_blank"><strong>0896-0341-7686</strong></a> aja!</div>
+		</td>
+</table>
+
+<div class="main">
+<table width="100%" height="300px">
+
+<tr>
+<td align="center" valign="middle">
+<form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
+<table class="tstatus" align="center">
+$(if login-by == 'trial')
+	<br><b><div style="text-align: center;">Selamat datang !</div></b><br>
+$(elif login-by != 'mac')
+	<br><b><div style="text-align: center;">Selamat datang $(username)</div></b><br>
+$(endif)
+	<tr>
+		<td align="right">User</td>
+		<td>:</td>
+		<td>$(username)</td>
+	</tr>
+	<tr>
+		<td align="right">IP Address</td>
+		<td>:</td>
+		<td>$(ip)</td>
+	</tr>
+	<tr>
+		<td align="right">MAC</td>
+		<td>:</td>
+		<td>$(mac)</td>
+	</tr>
+	<tr>
+		<td align="right">UL | DL</td>
+		<td>:</td>
+		<td>$(bytes-in-nice) | $(bytes-out-nice)</td>
+	</tr>
+	<tr>
+		<td align="right">Aktif</td>
+		<td>:</td>
+		<td>$(uptime)</td>
+	</tr>
+	$(if remain-bytes-total)
+	<tr>
+		<td align="right">Sisa Kuota</td>
+		<td>:</td>
+		<td>$(remain-bytes-total-nice)</td>
+	</tr>
+	$(endif)
+	$(if session-time-left)
+	<tr>
+		<td align="right">Sisa Waktu</td>
+		<td>:</td>
+		<td>$(session-time-left)</td>
+	</tr>
+	$(endif)
+</table>
+$(if login-by-mac != 'yes')
+<br>
+<center><input type="submit" class="button" value=" Logout | Keluar "></center>
+$(endif)
+</tr>
+</form>
+</td>
+</table>
+</div>
+</body>
+</html>

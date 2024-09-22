@@ -1,0 +1,92 @@
+<html>
+
+<head>
+	<title>PODJOK.NET logout</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="expires" content="-1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="d3.v3.min.js"></script>
+
+</head>
+
+<body align="center">
+
+	<script language="JavaScript">
+< !--
+			function openLogin() {
+				if (window.name != 'hotspot_logout') return true;
+				open('$(link-login)', '_blank', '');
+				window.close();
+				return false;
+			}
+//-->
+	</script>
+
+	<table width="100%" style="margin-top: 10px;">
+		<tr>
+			<td align="center">
+				<h2 style="font-size: 34px;color: white"><i>PODJOK.NET</i></h2>
+			</td>
+		</tr>
+		<td>
+			<div style="color: white; font-size: 14px; text-align: center;">Ingin langganan WiFi? <br>WA/Klik <a
+					href="https://wa.me/6289603417686/?text=Mau%20ikut%20paket%20podjok.net%20dong%21" target="_blank"><strong>0896-0341-7686</strong></a> aja!</div>
+		</td>
+	</table>
+
+	<div class="main">
+		<br>
+		<b style="text-align: center">Anda telah logout</b> <br><br>
+		<table class="tstatus" align="center">
+			<tr>
+				<td align="right">User</td>
+				<td>:</td>
+				<td>$(username)</td>
+			</tr>
+			<tr>
+				<td align="right">IP Address</td>
+				<td>:</td>
+				<td>$(ip)</td>
+			</tr>
+			<tr>
+				<td align="right">MAC</td>
+				<td>:</td>
+				<td>$(mac)</td>
+			</tr>
+			<tr>
+				<td align="right">UL | DL</td>
+				<td>:</td>
+				<td>$(bytes-in-nice) | $(bytes-out-nice)</td>
+			</tr>
+			<tr>
+				<td align="right">Aktif</td>
+				<td>:</td>
+				<td>$(uptime)</td>
+			</tr>
+			$(if remain-bytes-total)
+			<tr>
+				<td align="right">Sisa Kuota</td>
+				<td>:</td>
+				<td>$(remain-bytes-total-nice)</td>
+			</tr>
+			$(endif)
+			$(if session-time-left)
+			<tr>
+				<td align="right">Sisa Waktu</td>
+				<td>:</td>
+				<td>$(session-time-left)</td>
+			</tr>
+			$(endif)
+		</table>
+		<br>
+		<form action="$(link-login)" name="login" onSubmit="return openLogin()">
+			<center><input type="submit" class="button" value=" Login kembali "></center>
+			<br>
+		</form>
+		</td>
+	</div>
+</body>
+
+</html>
